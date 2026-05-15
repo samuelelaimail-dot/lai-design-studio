@@ -31,8 +31,8 @@
 <meta content="assets/img/og image.svg" property="og:image"/>
 <link href="assets/img/mark.svg" rel="icon" type="image/svg+xml"/>
 <link href="manifest.webmanifest" rel="manifest"/>
-<link href="assets/css/styles.css?v=stable-simple-no-audio-1" rel="stylesheet"/>
-<script defer="" src="assets/js/main.js?v=stable-simple-no-audio-1"></script>
+<link href="assets/css/styles.css?v=mobile-hamburger-no-gold-2" rel="stylesheet"/>
+<script defer="" src="assets/js/main.js?v=mobile-hamburger-no-gold-2"></script>
 <meta content="Asia for Animals case study by Samuele Lai: UI/UX, no code development, design system and donation focused digital strategy." name="description"/>
 <meta content="Asia for Animals: Case Study" property="og:title"/>
 <meta content="Asia for Animals case study by Samuele Lai: UI/UX, no code development, design system and donation focused digital strategy." property="og:description"/>
@@ -49,10 +49,10 @@
   .sl-mobile-menu-panel{min-height:100dvh;display:grid;grid-template-rows:auto 1fr auto;padding:1.1rem 1.2rem 2rem;gap:2.2rem}
   .sl-mobile-menu-top{display:flex;align-items:center;justify-content:space-between;gap:1rem}
   .sl-mobile-menu-logo{width:min(150px,42vw);height:auto}
-  .sl-mobile-menu-close{width:3.6rem;height:3.6rem;border:0;border-radius:999px;background:#c8a86e;color:#050505;font-size:2.2rem;line-height:1;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .sl-mobile-menu-close{width:3.6rem;height:3.6rem;border:0;border-radius:999px;background:var(--surface);color:#050505;font-size:2.2rem;line-height:1;cursor:pointer;-webkit-tap-highlight-color:transparent}
   .sl-mobile-menu-links{display:grid;align-content:center;gap:0;border-top:1px solid var(--line)}
   .sl-mobile-menu-link{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line);color:var(--text);text-decoration:none;text-transform:uppercase;letter-spacing:.18em;font-size:clamp(1.25rem,6.5vw,2.1rem);font-weight:700}
-  .sl-mobile-menu-link span:last-child{color:#c8a86e;font-size:1.5rem;letter-spacing:0}
+  .sl-mobile-menu-link span:last-child{color:var(--muted);font-size:1.5rem;letter-spacing:0}
   .sl-mobile-menu-bottom{display:grid;gap:1.2rem;border-top:1px solid var(--line);padding-top:1.2rem}
   .sl-mobile-menu-label{margin:0 0 .6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.17em;font-size:.7rem}
   .sl-mobile-menu-controls{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
@@ -63,6 +63,95 @@
   .sl-mobile-menu-panel{padding-inline:1rem}
   .sl-mobile-menu-controls{grid-template-columns:1fr}
   .sl-mobile-menu-link{font-size:clamp(1.1rem,6vw,1.65rem)}
+}
+</style>
+<style id="sl-mobile-hamburger-no-gold-css">
+@media (max-width:980px){
+  .sl-mobile-menu-trigger{
+    width:3.05rem!important;
+    min-width:3.05rem!important;
+    height:3.05rem!important;
+    min-height:3.05rem!important;
+    padding:0!important;
+    border:1px solid var(--line)!important;
+    border-radius:999px!important;
+    background:color-mix(in srgb,var(--bg) 78%,transparent)!important;
+    color:var(--text)!important;
+  }
+
+  .hamburger-lines{
+    width:1.12rem;
+    height:.82rem;
+    display:grid;
+    align-content:space-between;
+  }
+
+  .hamburger-lines span{
+    display:block;
+    width:100%;
+    height:1.5px;
+    border-radius:999px;
+    background:currentColor;
+    transform-origin:center;
+    transition:transform .18s ease,opacity .18s ease;
+  }
+
+  body.sl-menu-open .hamburger-lines span:nth-child(1){
+    transform:translateY(.34rem) rotate(45deg);
+  }
+
+  body.sl-menu-open .hamburger-lines span:nth-child(2){
+    opacity:0;
+  }
+
+  body.sl-menu-open .hamburger-lines span:nth-child(3){
+    transform:translateY(-.34rem) rotate(-45deg);
+  }
+
+  .sl-mobile-menu{
+    background:
+      linear-gradient(90deg,color-mix(in srgb,var(--bg) 86%,transparent) 0%,color-mix(in srgb,var(--bg) 98%,transparent) 45%,var(--bg) 100%),
+      radial-gradient(circle at 82% 12%,color-mix(in srgb,var(--text) 7%,transparent),transparent 28rem),
+      var(--bg)!important;
+  }
+
+  .sl-mobile-menu-close{
+    border:1px solid var(--line)!important;
+    background:var(--surface)!important;
+    color:var(--text)!important;
+    box-shadow:none!important;
+  }
+
+  .sl-mobile-menu-link span:last-child{
+    color:var(--muted)!important;
+  }
+
+  .sl-mobile-menu-control.is-active{
+    background:var(--text)!important;
+    color:var(--bg)!important;
+    border-color:var(--text)!important;
+  }
+
+  .sl-mobile-menu-control{
+    background:var(--surface)!important;
+    color:var(--text)!important;
+  }
+
+  a:focus-visible,
+  button:focus-visible{
+    outline:2px solid currentColor!important;
+    outline-offset:3px!important;
+  }
+}
+
+@media (max-width:430px){
+  .sl-mobile-menu-top{padding-top:.35rem;}
+  .sl-mobile-menu-trigger{
+    width:2.9rem!important;
+    min-width:2.9rem!important;
+    height:2.9rem!important;
+    min-height:2.9rem!important;
+  }
 }
 </style>
 </head>
@@ -93,7 +182,13 @@
       </div>
       <button aria-label="Toggle dyslexia-friendly reading mode" aria-pressed="false" class="icon-button" data-dyslexia-toggle="" data-i18n="ui.dyslexia" type="button">Dyslexia</button>
       <button aria-label="Switch colour theme" class="icon-button" data-i18n="ui.dark" data-theme-toggle="" type="button">Dark</button>
-      <button class="sl-mobile-menu-trigger" data-sl-menu-open type="button" aria-controls="slMobileMenu" aria-expanded="false">Menu</button>
+      <button class="sl-mobile-menu-trigger" data-sl-menu-open type="button" aria-controls="slMobileMenu" aria-expanded="false" aria-label="Open mobile menu">
+  <span class="hamburger-lines" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+</button>
     </div>
   </div>
 </header>

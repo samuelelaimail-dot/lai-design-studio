@@ -766,3 +766,26 @@
 })();
 
 
+
+
+// Mobile hamburger aria labels.
+(function () {
+  function ready(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  }
+  ready(function () {
+    const body = document.body;
+    const button = document.querySelector("[data-sl-menu-open]");
+    const menu = document.querySelector("[data-sl-mobile-menu]");
+    if (!button || !menu) return;
+    const update = () => {
+      const isOpen = menu.classList.contains("is-open") || body.classList.contains("sl-menu-open");
+      button.setAttribute("aria-label", isOpen ? "Close mobile menu" : "Open mobile menu");
+      button.setAttribute("aria-expanded", String(isOpen));
+    };
+    new MutationObserver(update).observe(menu, { attributes: true, attributeFilter: ["class"] });
+    new MutationObserver(update).observe(body, { attributes: true, attributeFilter: ["class"] });
+    update();
+  });
+})();
