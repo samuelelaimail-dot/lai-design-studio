@@ -2532,3 +2532,12 @@ img {
     grid-template-columns: 1fr !important;
   }
 }
+
+
+/* Audio removed */
+.site-audio-control,
+[data-audio],
+audio {
+  display: none !important;
+  visibility: hidden !important;
+}

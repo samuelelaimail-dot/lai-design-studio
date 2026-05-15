@@ -31,11 +31,39 @@
 <meta content="assets/img/og image.svg" property="og:image"/>
 <link href="assets/img/mark.svg" rel="icon" type="image/svg+xml"/>
 <link href="manifest.webmanifest" rel="manifest"/>
-<link href="assets/css/styles.css?v=css-mobile-toggle-menu-1" rel="stylesheet"/>
-<script defer="" src="assets/js/main.js?v=css-mobile-toggle-menu-1"></script>
+<link href="assets/css/styles.css?v=no-audio-complete-1" rel="stylesheet"/>
+<script defer="" src="assets/js/main.js?v=no-audio-complete-1"></script>
 <meta content="Psychology informed digital work by Samuele Lai: attention, trust, evidence and cognitive load." name="description"/>
 <meta content="Psychology: Samuele Lai" property="og:title"/>
 <meta content="Psychology informed digital work by Samuele Lai: attention, trust, evidence and cognitive load." property="og:description"/>
+<style id="sl-simple-mobile-menu-css">
+.sl-mobile-menu-trigger{display:none}.sl-mobile-menu{display:none}
+@media (max-width:980px){
+  .nav-links{display:none!important}
+  .nav-actions .lang-switch,.nav-actions [data-dyslexia-toggle],.nav-actions [data-theme-toggle],.menu-button,.menu-label-button{display:none!important}
+  .sl-mobile-menu-trigger{display:inline-flex!important;align-items:center;justify-content:center;min-width:4.9rem;min-height:2.8rem;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--bg) 74%,transparent);color:var(--text);font:inherit;font-size:.9rem;line-height:1;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  body.sl-menu-open{overflow:hidden!important}
+  .sl-mobile-menu{position:fixed;inset:0;z-index:999999;display:none;background:linear-gradient(90deg,color-mix(in srgb,var(--bg) 82%,transparent) 0%,color-mix(in srgb,var(--bg) 97%,transparent) 42%,var(--bg) 100%),radial-gradient(circle at 80% 10%,rgba(200,168,110,.14),transparent 28rem),var(--bg);color:var(--text);overflow-y:auto;overscroll-behavior:contain;opacity:0;transform:translateX(1.5rem);transition:opacity .2s ease,transform .2s ease}
+  .sl-mobile-menu.is-open{display:block!important;opacity:1;transform:translateX(0)}
+  .sl-mobile-menu-panel{min-height:100dvh;display:grid;grid-template-rows:auto 1fr auto;padding:1.1rem 1.2rem 2rem;gap:2.2rem}
+  .sl-mobile-menu-top{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+  .sl-mobile-menu-logo{width:min(150px,42vw);height:auto}
+  .sl-mobile-menu-close{width:3.6rem;height:3.6rem;border:0;border-radius:999px;background:#c8a86e;color:#050505;font-size:2.2rem;line-height:1;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .sl-mobile-menu-links{display:grid;align-content:center;gap:0;border-top:1px solid var(--line)}
+  .sl-mobile-menu-link{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line);color:var(--text);text-decoration:none;text-transform:uppercase;letter-spacing:.18em;font-size:clamp(1.25rem,6.5vw,2.1rem);font-weight:700}
+  .sl-mobile-menu-link span:last-child{color:#c8a86e;font-size:1.5rem;letter-spacing:0}
+  .sl-mobile-menu-bottom{display:grid;gap:1.2rem;border-top:1px solid var(--line);padding-top:1.2rem}
+  .sl-mobile-menu-label{margin:0 0 .6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.17em;font-size:.7rem}
+  .sl-mobile-menu-controls{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+  .sl-mobile-menu-control{min-height:3.15rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text);font:inherit;font-size:.9rem;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .sl-mobile-menu-control.is-active{background:var(--text);color:var(--bg);border-color:var(--text)}
+}
+@media (max-width:430px){
+  .sl-mobile-menu-panel{padding-inline:1rem}
+  .sl-mobile-menu-controls{grid-template-columns:1fr}
+  .sl-mobile-menu-link{font-size:clamp(1.1rem,6vw,1.65rem)}
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -62,43 +90,42 @@
 </div>
 <button aria-label="Toggle dyslexia-friendly reading mode" aria-pressed="false" class="icon-button" data-dyslexia-toggle="" data-i18n="ui.dyslexia" type="button">Dyslexia</button>
 <button aria-label="Switch colour theme" class="icon-button" data-i18n="ui.dark" data-theme-toggle="" type="button">Dark</button>
-<label aria-label="Open mobile navigation" class="menu-button menu-label-button" for="mobile-menu-toggle">
-  <span class="menu-label-open">Menu</span>
-  <span class="menu-label-close">Close</span>
-</label>
 </div>
 </div>
-<input aria-hidden="true" class="mobile-menu-toggle" id="mobile-menu-toggle" type="checkbox">
-<div class="mobile-nav" data-mobile-nav="">
-  <div class="container mobile-nav-inner">
-    <nav aria-label="Mobile navigation" class="mobile-menu-links">
-      <a data-i18n="nav.home" href="index.html">Home</a>
-      <a data-i18n="nav.profile" href="profile.html">Profile</a>
-      <a data-i18n="nav.work" href="work.html">Work</a>
-      <a data-i18n="nav.psychology" href="psychology.html">Psychology</a>
-      <a data-i18n="nav.contact" href="contact.html">Contact</a>
+<button class="sl-mobile-menu-trigger" data-sl-menu-open type="button" aria-controls="slMobileMenu" aria-expanded="false">Menu</button></div>
+</div>
+</header>
+<div class="sl-mobile-menu" id="slMobileMenu" data-sl-mobile-menu aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile menu">
+  <div class="sl-mobile-menu-panel">
+    <div class="sl-mobile-menu-top">
+      <img class="sl-mobile-menu-logo" src="assets/img/lai-design-logo.png" alt="Lai Design Studio">
+      <button class="sl-mobile-menu-close" data-sl-menu-close type="button" aria-label="Close menu">×</button>
+    </div>
+    <nav class="sl-mobile-menu-links" aria-label="Mobile navigation">
+      <a class="sl-mobile-menu-link" data-sl-close-link href="index.html"><span data-i18n="nav.home">Home</span><span>+</span></a>
+      <a class="sl-mobile-menu-link" data-sl-close-link href="profile.html"><span data-i18n="nav.profile">Profile</span><span>+</span></a>
+      <a class="sl-mobile-menu-link" data-sl-close-link href="work.html"><span data-i18n="nav.work">Work</span><span>+</span></a>
+      <a class="sl-mobile-menu-link" data-sl-close-link href="psychology.html"><span data-i18n="nav.psychology">Psychology</span><span>+</span></a>
+      <a class="sl-mobile-menu-link" data-sl-close-link href="contact.html"><span data-i18n="nav.contact">Contact</span><span>+</span></a>
     </nav>
-
-    <div class="mobile-menu-controls" aria-label="Mobile preferences">
-      <div class="mobile-control-block">
-        <p class="mobile-control-label" data-i18n="ui.language">Language</p>
-        <div aria-label="Language selector" class="mobile-lang">
-          <button aria-pressed="true" data-lang="en" type="button">EN</button>
-          <button aria-pressed="false" data-lang="it" type="button">IT</button>
+    <div class="sl-mobile-menu-bottom">
+      <div>
+        <p class="sl-mobile-menu-label">Language</p>
+        <div class="sl-mobile-menu-controls">
+          <button class="sl-mobile-menu-control" data-sl-lang="en" type="button">EN</button>
+          <button class="sl-mobile-menu-control" data-sl-lang="it" type="button">IT</button>
         </div>
       </div>
-
-      <div class="mobile-control-block">
-        <p class="mobile-control-label" data-i18n="ui.preferences">Preferences</p>
-        <div class="mobile-toggle-grid">
-          <button aria-label="Switch colour theme" class="mobile-control-button" data-mobile-theme-toggle="" type="button">Dark</button>
-          <button aria-label="Toggle dyslexia-friendly reading mode" aria-pressed="false" class="mobile-control-button" data-mobile-dyslexia-toggle="" type="button">Dyslexia</button>
+      <div>
+        <p class="sl-mobile-menu-label">Preferences</p>
+        <div class="sl-mobile-menu-controls">
+          <button class="sl-mobile-menu-control" data-sl-theme type="button">Dark</button>
+          <button class="sl-mobile-menu-control" data-sl-dyslexia type="button">Dyslexia</button>
         </div>
       </div>
     </div>
   </div>
 </div>
-</header>
 <main class="page-main" id="main">
 <section class="page-intro">
 <div class="container intro-grid">
@@ -212,5 +239,33 @@
 </div>
 </footer>
 </div>
+<script id="sl-simple-mobile-menu-js">
+(function(){function ready(fn){if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",fn);else fn();}
+ready(function(){
+  var root=document.documentElement,body=document.body;
+  var openButton=document.querySelector("[data-sl-menu-open]");
+  var menu=document.querySelector("[data-sl-mobile-menu]");
+  var closeButton=document.querySelector("[data-sl-menu-close]");
+  if(!openButton||!menu||!closeButton)return;
+  var firstLink=menu.querySelector("a");
+  function currentLang(){var saved=localStorage.getItem("site-lang");if(saved==="it"||saved==="en")return saved;return document.documentElement.lang==="it"?"it":"en";}
+  function openMenu(){menu.classList.add("is-open");body.classList.add("sl-menu-open");menu.setAttribute("aria-hidden","false");openButton.setAttribute("aria-expanded","true");setTimeout(function(){if(firstLink)firstLink.focus({preventScroll:true});},60);}
+  function closeMenu(){menu.classList.remove("is-open");body.classList.remove("sl-menu-open");menu.setAttribute("aria-hidden","true");openButton.setAttribute("aria-expanded","false");}
+  function syncControls(){var lang=currentLang();var isDark=root.getAttribute("data-theme")==="dark";var isDyslexia=body.classList.contains("dyslexia-mode");
+    menu.querySelectorAll("[data-sl-lang]").forEach(function(button){button.classList.toggle("is-active",button.getAttribute("data-sl-lang")===lang);});
+    menu.querySelectorAll("[data-sl-theme]").forEach(function(button){button.textContent=isDark?(lang==="it"?"Chiaro":"Light"):(lang==="it"?"Scuro":"Dark");button.classList.toggle("is-active",isDark);});
+    menu.querySelectorAll("[data-sl-dyslexia]").forEach(function(button){button.textContent="Dyslexia";button.classList.toggle("is-active",isDyslexia);});
+  }
+  openButton.addEventListener("click",function(event){event.preventDefault();openMenu();});
+  closeButton.addEventListener("click",function(event){event.preventDefault();closeMenu();});
+  menu.addEventListener("click",function(event){if(event.target===menu)closeMenu();});
+  menu.querySelectorAll("[data-sl-close-link]").forEach(function(link){link.addEventListener("click",closeMenu);});
+  document.addEventListener("keydown",function(event){if(event.key==="Escape")closeMenu();});
+  menu.querySelectorAll("[data-sl-lang]").forEach(function(button){button.addEventListener("click",function(){var lang=button.getAttribute("data-sl-lang");localStorage.setItem("site-lang",lang);if(typeof window.applySiteLanguage==="function"){window.applySiteLanguage(lang);}else{document.documentElement.lang=lang;}syncControls();});});
+  menu.querySelectorAll("[data-sl-theme]").forEach(function(button){button.addEventListener("click",function(){var next=root.getAttribute("data-theme")==="dark"?"light":"dark";root.setAttribute("data-theme",next);localStorage.setItem("site-theme",next);syncControls();});});
+  menu.querySelectorAll("[data-sl-dyslexia]").forEach(function(button){button.addEventListener("click",function(){var active=body.classList.toggle("dyslexia-mode");localStorage.setItem("site-dyslexia",String(active));syncControls();});});
+  window.addEventListener("storage",syncControls);syncControls();
+});})();
+</script>
 </body>
 </html>
