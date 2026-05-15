@@ -31,159 +31,11 @@
 <meta content="assets/img/og image.svg" property="og:image"/>
 <link href="assets/img/mark.svg" rel="icon" type="image/svg+xml"/>
 <link href="manifest.webmanifest" rel="manifest"/>
-<link href="assets/css/styles.css?v=mobile-menu-hard-fix-3" rel="stylesheet"/>
-<script defer="" src="assets/js/main.js?v=mobile-menu-hard-fix-3"></script>
+<link href="assets/css/styles.css?v=css-mobile-toggle-menu-1" rel="stylesheet"/>
+<script defer="" src="assets/js/main.js?v=css-mobile-toggle-menu-1"></script>
 <meta content="Professional profile for Samuele Lai: creative direction, computing, design and psychology informed communication." name="description"/>
 <meta content="Profile: Samuele Lai" property="og:title"/>
 <meta content="Professional profile for Samuele Lai: creative direction, computing, design and psychology informed communication." property="og:description"/>
-<style id="mobile-menu-hard-fix">
-@media (max-width: 980px) {
-  body.mobile-menu-open {
-    overflow: hidden !important;
-    touch-action: none;
-  }
-
-  .nav-actions .lang-switch,
-  .nav-actions [data-dyslexia-toggle],
-  .nav-actions [data-theme-toggle] {
-    display: none !important;
-  }
-
-  .menu-button {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-width: 4.6rem !important;
-    min-height: 2.65rem !important;
-  }
-
-  .mobile-nav {
-    position: fixed !important;
-    top: var(--nav-height, 4.5rem) !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    z-index: 999 !important;
-    display: none !important;
-    border-top: 1px solid var(--line) !important;
-    background:
-      radial-gradient(circle at 18% 10%, rgba(200, 168, 110, .08), transparent 30rem),
-      color-mix(in srgb, var(--bg) 97%, transparent) !important;
-    backdrop-filter: blur(22px) !important;
-    -webkit-backdrop-filter: blur(22px) !important;
-    overflow-y: auto !important;
-    overscroll-behavior: contain !important;
-  }
-
-  .mobile-nav.open,
-  body.mobile-menu-open .mobile-nav {
-    display: block !important;
-  }
-
-  .mobile-nav-inner {
-    min-height: calc(100dvh - var(--nav-height, 4.5rem)) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2rem !important;
-    padding-top: clamp(1.4rem, 6vw, 2.4rem) !important;
-    padding-bottom: 6rem !important;
-  }
-
-  .mobile-menu-links {
-    display: grid !important;
-    border-top: 1px solid var(--line) !important;
-  }
-
-  .mobile-menu-links a {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    padding: 1.05rem 0 !important;
-    border-bottom: 1px solid var(--line) !important;
-    color: var(--text) !important;
-    font-size: clamp(2rem, 11vw, 3.4rem) !important;
-    line-height: .95 !important;
-    letter-spacing: -.055em !important;
-    text-decoration: none !important;
-  }
-
-  .mobile-menu-links a::after {
-    content: "→";
-    width: 2.05rem;
-    height: 2.05rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    font-size: .9rem;
-    opacity: .6;
-  }
-
-  .mobile-menu-controls {
-    margin-top: auto !important;
-    display: grid !important;
-    gap: 1.25rem !important;
-    border-top: 1px solid var(--line) !important;
-    padding-top: 1.25rem !important;
-  }
-
-  .mobile-control-block {
-    display: grid !important;
-    gap: .7rem !important;
-  }
-
-  .mobile-control-label {
-    margin: 0 !important;
-    color: var(--muted) !important;
-    font-size: .68rem !important;
-    letter-spacing: .17em !important;
-    text-transform: uppercase !important;
-  }
-
-  .mobile-lang,
-  .mobile-toggle-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: .6rem !important;
-  }
-
-  .mobile-lang {
-    border: 0 !important;
-    background: transparent !important;
-    padding: 0 !important;
-  }
-
-  .mobile-lang button,
-  .mobile-control-button {
-    width: 100% !important;
-    min-height: 3.15rem !important;
-    border: 1px solid var(--line) !important;
-    border-radius: 999px !important;
-    background: var(--surface) !important;
-    color: var(--text) !important;
-    font-size: .9rem !important;
-  }
-
-  .mobile-lang button[aria-pressed="true"],
-  .mobile-control-button[aria-pressed="true"] {
-    background: var(--text) !important;
-    color: var(--bg) !important;
-    border-color: var(--text) !important;
-  }
-}
-
-@media (max-width: 420px) {
-  .mobile-menu-links a {
-    font-size: clamp(1.85rem, 12vw, 2.75rem) !important;
-  }
-
-  .mobile-toggle-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-</style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -210,9 +62,13 @@
 </div>
 <button aria-label="Toggle dyslexia-friendly reading mode" aria-pressed="false" class="icon-button" data-dyslexia-toggle="" data-i18n="ui.dyslexia" type="button">Dyslexia</button>
 <button aria-label="Switch colour theme" class="icon-button" data-i18n="ui.dark" data-theme-toggle="" type="button">Dark</button>
-<button aria-expanded="false" aria-label="Open navigation menu" class="menu-button" data-i18n="ui.menu" data-menu-button="" type="button">Menu</button>
+<label aria-label="Open mobile navigation" class="menu-button menu-label-button" for="mobile-menu-toggle">
+  <span class="menu-label-open">Menu</span>
+  <span class="menu-label-close">Close</span>
+</label>
 </div>
 </div>
+<input aria-hidden="true" class="mobile-menu-toggle" id="mobile-menu-toggle" type="checkbox">
 <div class="mobile-nav" data-mobile-nav="">
   <div class="container mobile-nav-inner">
     <nav aria-label="Mobile navigation" class="mobile-menu-links">
@@ -325,103 +181,5 @@
 </div>
 </footer>
 </div>
-<script id="mobile-menu-hard-fix-script">
-(function () {
-  var root = document.documentElement;
-  var body = document.body;
-  var button = document.querySelector("[data-menu-button]");
-  var nav = document.querySelector("[data-mobile-nav]");
-  if (!button || !nav) return;
-
-  function currentLang() {
-    var saved = localStorage.getItem("site-lang");
-    if (saved === "it" || saved === "en") return saved;
-    return document.documentElement.lang === "it" ? "it" : "en";
-  }
-
-  function labels() {
-    return currentLang() === "it"
-      ? { menu: "Menu", close: "Chiudi", dark: "Scuro", light: "Chiaro", dyslexia: "Dyslexia" }
-      : { menu: "Menu", close: "Close", dark: "Dark", light: "Light", dyslexia: "Dyslexia" };
-  }
-
-  function sync() {
-    var text = labels();
-    var open = nav.classList.contains("open");
-    button.textContent = open ? text.close : text.menu;
-    button.setAttribute("aria-expanded", String(open));
-    button.setAttribute("aria-label", open ? text.close : text.menu);
-    body.classList.toggle("mobile-menu-open", open);
-
-    document.querySelectorAll("[data-mobile-theme-toggle]").forEach(function (themeButton) {
-      var isDark = root.getAttribute("data-theme") === "dark";
-      themeButton.textContent = isDark ? text.light : text.dark;
-      themeButton.setAttribute("aria-pressed", String(isDark));
-    });
-
-    document.querySelectorAll("[data-mobile-dyslexia-toggle]").forEach(function (dyslexiaButton) {
-      var active = body.classList.contains("dyslexia-mode");
-      dyslexiaButton.textContent = text.dyslexia;
-      dyslexiaButton.setAttribute("aria-pressed", String(active));
-    });
-  }
-
-  document.addEventListener("click", function (event) {
-    var clickedMenu = event.target.closest("[data-menu-button]");
-    if (!clickedMenu) return;
-    if (!window.matchMedia("(max-width: 980px)").matches) return;
-
-    event.preventDefault();
-    event.stopPropagation();
-    if (event.stopImmediatePropagation) event.stopImmediatePropagation();
-
-    nav.classList.toggle("open");
-    sync();
-  }, true);
-
-  document.addEventListener("click", function (event) {
-    if (!event.target.closest("[data-mobile-theme-toggle]")) return;
-    event.preventDefault();
-    event.stopPropagation();
-
-    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    localStorage.setItem("site-theme", next);
-    sync();
-  }, true);
-
-  document.addEventListener("click", function (event) {
-    if (!event.target.closest("[data-mobile-dyslexia-toggle]")) return;
-    event.preventDefault();
-    event.stopPropagation();
-
-    var active = body.classList.toggle("dyslexia-mode");
-    localStorage.setItem("site-dyslexia", String(active));
-    sync();
-  }, true);
-
-  nav.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      nav.classList.remove("open");
-      sync();
-    });
-  });
-
-  document.addEventListener("keydown", function (event) {
-    if (event.key !== "Escape") return;
-    nav.classList.remove("open");
-    sync();
-  });
-
-  window.addEventListener("resize", sync);
-  document.querySelectorAll("[data-lang]").forEach(function (langButton) {
-    langButton.addEventListener("click", function () {
-      window.setTimeout(sync, 0);
-    });
-  });
-
-  sync();
-})();
-</script>
 </body>
 </html>

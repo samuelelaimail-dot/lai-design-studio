@@ -1014,3 +1014,68 @@
   window.addEventListener("storage", syncMobileControls);
   syncMobileControls();
 })();
+
+
+// Mobile menu inner controls only. The menu itself opens through native CSS.
+(function () {
+  const root = document.documentElement;
+  const body = document.body;
+
+  function currentLang() {
+    const saved = localStorage.getItem("site-lang");
+    if (saved === "it" || saved === "en") return saved;
+    return document.documentElement.lang === "it" ? "it" : "en";
+  }
+
+  function labels() {
+    return currentLang() === "it"
+      ? { dark: "Scuro", light: "Chiaro", dyslexia: "Dyslexia" }
+      : { dark: "Dark", light: "Light", dyslexia: "Dyslexia" };
+  }
+
+  function syncMobilePreferenceButtons() {
+    const text = labels();
+    const isDark = root.getAttribute("data-theme") === "dark";
+    const isDyslexia = body.classList.contains("dyslexia-mode");
+
+    document.querySelectorAll("[data-mobile-theme-toggle]").forEach((button) => {
+      button.textContent = isDark ? text.light : text.dark;
+      button.setAttribute("aria-pressed", String(isDark));
+    });
+
+    document.querySelectorAll("[data-mobile-dyslexia-toggle]").forEach((button) => {
+      button.textContent = text.dyslexia;
+      button.setAttribute("aria-pressed", String(isDyslexia));
+    });
+  }
+
+  document.addEventListener("click", (event) => {
+    const themeButton = event.target.closest("[data-mobile-theme-toggle]");
+    if (!themeButton) return;
+    event.preventDefault();
+
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    localStorage.setItem("site-theme", next);
+    syncMobilePreferenceButtons();
+  });
+
+  document.addEventListener("click", (event) => {
+    const dyslexiaButton = event.target.closest("[data-mobile-dyslexia-toggle]");
+    if (!dyslexiaButton) return;
+    event.preventDefault();
+
+    const active = body.classList.toggle("dyslexia-mode");
+    localStorage.setItem("site-dyslexia", String(active));
+    syncMobilePreferenceButtons();
+  });
+
+  document.addEventListener("click", (event) => {
+    const languageButton = event.target.closest(".mobile-lang [data-lang]");
+    if (!languageButton) return;
+    window.setTimeout(syncMobilePreferenceButtons, 0);
+  });
+
+  window.addEventListener("storage", syncMobilePreferenceButtons);
+  syncMobilePreferenceButtons();
+})();
