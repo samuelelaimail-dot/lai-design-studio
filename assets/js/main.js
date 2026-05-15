@@ -335,7 +335,7 @@
       "home.identity1.text": "I judge scripts and animated films for Catalina Film Festival, reading story, rhythm, visual craft, audience clarity and emotional coherence as evaluative systems.",
       "home.identity2.label": "Research",
       "home.identity2.title": "Children’s animation and attention",
-// removed audio:       "home.identity2.text": "My research baseline studies how audiovisual stimulation, platform expectations, viewing context and genre shape children’s attention.",
+      "home.identity2.text": "My research baseline studies how audiovisual stimulation, platform expectations, viewing context and genre shape children’s attention.",
       "home.identity3.label": "Build",
       "home.identity3.title": "Digital systems in code",
       "home.identity3.text": "The Catalina work now includes a new full code website build, extending the project from visual direction into technical ownership.",
@@ -354,10 +354,10 @@
       "work.judge.title": "Script and animation film judging",
       "work.judge.text": "Judging scripts and animated films for Catalina Film Festival, with attention to story logic, visual craft, pacing, audience clarity and emotional coherence.",
       "work.research.title": "Children’s animation, attention and stimulation",
-// removed audio:       "work.research.text": "A research baseline on whether children’s attention should be understood through media design, audiovisual density, platform expectations and viewing context, rather than through attention span alone.",
+      "work.research.text": "A research baseline on whether children’s attention should be understood through media design, audiovisual density, platform expectations and viewing context, rather than through attention span alone.",
       "work.open": "Open",
       "research.kicker": "Research baseline",
-// removed audio:       "research.title": "Children’s animation, attention and audiovisual stimulation.",
+      "research.title": "Children’s animation, attention and audiovisual stimulation.",
       "research.p1": "The research questions the simple claim that children are less attentive. The stronger frame is that attention is shaped by media design, viewing context, platform expectations, genre, age group and environmental distraction.",
       "research.p2": "The project compares different attentional strategies in animation. Some content uses sensory density and rapid pacing. Other content remains deliberately slower, regulated and educational. The question is what assumptions about attention are built into the media environment.",
       "research.measure1": "Average shot length, cuts per minute and frequency of scene changes.",
@@ -644,7 +644,7 @@
       "home.identity1.text": "Sono giudice di script e film di animazione per Catalina Film Festival, valutando storia, ritmo, qualità visiva, chiarezza per il pubblico e coerenza emotiva come sistemi.",
       "home.identity2.label": "Ricerca",
       "home.identity2.title": "Animazione per bambini e attenzione",
-// removed audio:       "home.identity2.text": "La mia baseline di ricerca studia come stimolazione audiovisiva, aspettative di piattaforma, contesto di visione e genere modellino l’attenzione dei bambini.",
+      "home.identity2.text": "La mia baseline di ricerca studia come stimolazione audiovisiva, aspettative di piattaforma, contesto di visione e genere modellino l’attenzione dei bambini.",
       "home.identity3.label": "Build",
       "home.identity3.title": "Sistemi digitali in codice",
       "home.identity3.text": "Il lavoro Catalina include ora un nuovo sito scritto completamente in codice, estendendo il progetto dalla direzione visiva al controllo tecnico.",
@@ -663,10 +663,10 @@
       "work.judge.title": "Giudizio di script e film di animazione",
       "work.judge.text": "Giudico script e film di animazione per Catalina Film Festival, con attenzione a logica narrativa, qualità visiva, ritmo, chiarezza per il pubblico e coerenza emotiva.",
       "work.research.title": "Animazione per bambini, attenzione e stimolazione",
-// removed audio:       "work.research.text": "Una baseline di ricerca su come l’attenzione dei bambini possa essere letta attraverso media design, densità audiovisiva, aspettative di piattaforma e contesto di visione, non solo attraverso l’attention span.",
+      "work.research.text": "Una baseline di ricerca su come l’attenzione dei bambini possa essere letta attraverso media design, densità audiovisiva, aspettative di piattaforma e contesto di visione, non solo attraverso l’attention span.",
       "work.open": "Apri",
       "research.kicker": "Baseline di ricerca",
-// removed audio:       "research.title": "Animazione per bambini, attenzione e stimolazione audiovisiva.",
+      "research.title": "Animazione per bambini, attenzione e stimolazione audiovisiva.",
       "research.p1": "La ricerca mette in discussione l’idea semplice che i bambini siano meno attenti. Il frame più forte è che l’attenzione è modellata da media design, contesto di visione, aspettative di piattaforma, genere, fascia d’età e distrazione ambientale.",
       "research.p2": "Il progetto confronta diverse strategie attentive nell’animazione. Alcuni contenuti usano densità sensoriale e ritmo rapido. Altri restano volutamente più lenti, regolati ed educativi. La domanda è quali assunzioni sull’attenzione siano costruite dentro l’ambiente mediale.",
       "research.measure1": "Durata media delle inquadrature, tagli al minuto e frequenza dei cambi scena.",
@@ -774,24 +774,26 @@
 })();
 
 
-// removed audio: // Persistent audio player.
+// Persistent audio player.
 // Browsers may block sound before the first user interaction. When that happens,
 // the control lets the visitor start the track manually. Playback position is
 // saved so navigation resumes from the same point instead of starting again.
 (function () {
-// removed audio: const STORAGE_ENABLED = "site-audio-enabled";
-// removed audio: const STORAGE_VOLUME = "site-audio-volume";
+  const AUDIO_SRC = "assets/audio/velvet-index.mp3";
+  const STORAGE_ENABLED = "site-audio-enabled";
+  const STORAGE_TIME = "site-audio-time";
+  const STORAGE_VOLUME = "site-audio-volume";
 
   const labels = {
     en: {
-// removed audio:       playing: "Audio on",
-// removed audio:       paused: "Audio off",
-// removed audio:       blocked: "Enable audio"
+      playing: "Audio on",
+      paused: "Audio off",
+      blocked: "Enable audio"
     },
     it: {
-// removed audio:       playing: "Audio attivo",
-// removed audio:       paused: "Audio spento",
-// removed audio:       blocked: "Attiva audio"
+      playing: "Audio attivo",
+      paused: "Audio spento",
+      blocked: "Attiva audio"
     }
   };
 
@@ -807,12 +809,12 @@
   }
 
   const control = document.createElement("div");
-// removed audio:   control.className = "site-audio-control";
+  control.className = "site-audio-control";
   control.setAttribute("role", "group");
-// removed audio:   control.setAttribute("aria-label", "Site audio");
+  control.setAttribute("aria-label", "Site audio");
 
   const dot = document.createElement("span");
-// removed audio:   dot.className = "site-audio-dot";
+  dot.className = "site-audio-dot";
   dot.setAttribute("aria-hidden", "true");
 
   const button = document.createElement("button");
@@ -821,16 +823,18 @@
 
   control.append(dot, button);
   document.body.appendChild(control);
-// removed audio: audio.loop = true;
-// removed audio:   audio.preload = "auto";
-// removed audio:   audio.volume = Number(localStorage.getItem(STORAGE_VOLUME) || "0.35");
+
+  const audio = new Audio(AUDIO_SRC);
+  audio.loop = true;
+  audio.preload = "auto";
+  audio.volume = Number(localStorage.getItem(STORAGE_VOLUME) || "0.35");
 
   let enabled = localStorage.getItem(STORAGE_ENABLED);
   if (enabled === null) enabled = "true";
 
   function saveTime() {
-// removed audio:     if (!Number.isNaN(audio.currentTime) && audio.currentTime > 0) {
-// removed audio:       localStorage.setItem(STORAGE_TIME, String(audio.currentTime));
+    if (!Number.isNaN(audio.currentTime) && audio.currentTime > 0) {
+      localStorage.setItem(STORAGE_TIME, String(audio.currentTime));
     }
   }
 
@@ -845,46 +849,47 @@
     const stored = Number(localStorage.getItem(STORAGE_TIME) || "0");
     if (!Number.isFinite(stored) || stored <= 0) return;
     try {
-// removed audio: audio.currentTime = duration ? stored % duration : stored;
+      const duration = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : null;
+      audio.currentTime = duration ? stored % duration : stored;
     } catch {
       // Some browsers only allow currentTime after metadata is ready.
     }
   }
 
-// removed audio:   async function playAudio() {
+  async function playAudio() {
     localStorage.setItem(STORAGE_ENABLED, "true");
     restoreTime();
     try {
-// removed audio:       await audio.play();
+      await audio.play();
       setState("playing");
     } catch {
       setState("blocked");
     }
   }
 
-// removed audio:   function pauseAudio() {
-// removed audio:     audio.pause();
+  function pauseAudio() {
+    audio.pause();
     saveTime();
     localStorage.setItem(STORAGE_ENABLED, "false");
     setState("paused");
   }
 
-// removed audio:   audio.addEventListener("loadedmetadata", restoreTime);
-// removed audio:   audio.addEventListener("timeupdate", () => {
-// removed audio:     if (!audio.paused) saveTime();
+  audio.addEventListener("loadedmetadata", restoreTime);
+  audio.addEventListener("timeupdate", () => {
+    if (!audio.paused) saveTime();
   });
 
   button.addEventListener("click", () => {
-// removed audio:     if (audio.paused) {
-// removed audio:       playAudio();
+    if (audio.paused) {
+      playAudio();
     } else {
-// removed audio:       pauseAudio();
+      pauseAudio();
     }
   });
 
   document.addEventListener("click", () => {
-// removed audio:     if (localStorage.getItem(STORAGE_ENABLED) !== "false" && audio.paused) {
-// removed audio:       playAudio();
+    if (localStorage.getItem(STORAGE_ENABLED) !== "false" && audio.paused) {
+      playAudio();
     }
   }, { once: true });
 
@@ -902,7 +907,7 @@
   if (typeof originalApplyLanguage === "function") {
     window.applySiteLanguage = function (lang) {
       originalApplyLanguage(lang);
-// removed audio:       if (!audio.paused) setState("playing");
+      if (!audio.paused) setState("playing");
       else if (localStorage.getItem(STORAGE_ENABLED) === "false") setState("paused");
       else setState("blocked");
     };
@@ -910,7 +915,7 @@
 
   if (enabled !== "false") {
     setState("blocked");
-// removed audio:     playAudio();
+    playAudio();
   } else {
     setState("paused");
   }
@@ -1073,4 +1078,15 @@
 
   window.addEventListener("storage", syncMobilePreferenceButtons);
   syncMobilePreferenceButtons();
+})();
+
+
+// Audio disabled in this export.
+(function () {
+  document.querySelectorAll("audio, [data-audio], .site-audio-control").forEach((node) => {
+    try {
+      if (node.pause) node.pause();
+      node.remove();
+    } catch (_) {}
+  });
 })();
