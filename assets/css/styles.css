@@ -1885,3 +1885,292 @@ img {
     width: 106px;
   }
 }
+
+
+/* Real mobile fix: correct reflow before browser scales the desktop layout */
+@media (max-width: 980px) {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  body {
+    min-width: 0 !important;
+  }
+
+  .site-shell,
+  .page-main,
+  .header,
+  .footer {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: min(100% - 1.25rem, 100%) !important;
+    max-width: none !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .navbar {
+    min-height: 4rem;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: .65rem;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand-logo {
+    width: 120px !important;
+    max-width: 42vw;
+    height: auto;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .nav-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: .35rem;
+    min-width: 0;
+  }
+
+  .menu-button {
+    display: inline-flex !important;
+  }
+
+  .chip-button,
+  .icon-button,
+  .menu-button {
+    min-height: 38px;
+    padding: .46rem .56rem;
+    font-size: .72rem;
+  }
+
+  .mobile-nav.open {
+    display: block !important;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+  }
+
+  .mobile-nav .container {
+    display: grid;
+    gap: .45rem;
+    padding-top: 1rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+  .mobile-nav a {
+    display: block;
+    padding: .72rem 0;
+    font-size: 1.05rem;
+  }
+
+  .page-main {
+    padding-top: calc(var(--nav-height) + .5rem);
+  }
+
+  .hero,
+  .page-intro {
+    min-height: auto !important;
+    padding-top: 1.75rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .section {
+    padding-top: 3.25rem !important;
+    padding-bottom: 3.25rem !important;
+  }
+
+  .hero-grid,
+  .intro-grid,
+  .home-capabilities,
+  .consultancy-capabilities,
+  .split-text,
+  .case-duo,
+  .case-duo.reverse,
+  .case-columns,
+  .editorial-grid,
+  .project-visual-grid,
+  .identity-strip,
+  .research-frame,
+  .magazine-showcase,
+  .contact-grid,
+  .work-atmosphere,
+  .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+
+  .section-head {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    margin-bottom: 1.8rem !important;
+  }
+
+  .hero h1,
+  .page-intro h1,
+  .consultancy-capabilities .section-head h2 {
+    font-size: clamp(2.15rem, 12vw, 4rem) !important;
+    line-height: .97 !important;
+    letter-spacing: -.06em !important;
+    max-width: 100% !important;
+  }
+
+  .section-head h2,
+  .text-block h2,
+  .list-block h2 {
+    font-size: clamp(1.8rem, 9vw, 3rem) !important;
+    line-height: 1.02 !important;
+    max-width: 100% !important;
+  }
+
+  .hero .lead,
+  .page-intro .lead,
+  .section-head p,
+  .text-block p,
+  .list-block p,
+  .row-content p,
+  .case-narrative-item p {
+    font-size: 1rem !important;
+    line-height: 1.65 !important;
+    max-width: 100% !important;
+  }
+
+  .kicker {
+    font-size: .68rem !important;
+    letter-spacing: .17em !important;
+  }
+
+  .hero-actions,
+  .inline-actions,
+  .contact-actions,
+  .magazine-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: .75rem !important;
+  }
+
+  .button,
+  .row-link {
+    width: 100% !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .consultancy-item,
+  .capability-item,
+  .row-item,
+  .case-narrative-item,
+  .identity-row,
+  .research-measure {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: .85rem !important;
+    padding-top: 1.45rem !important;
+    padding-bottom: 1.45rem !important;
+    min-height: auto !important;
+  }
+
+  .consultancy-item .capability-number,
+  .capability-number,
+  .row-label {
+    font-size: .68rem !important;
+    letter-spacing: .16em !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .consultancy-item h3,
+  .capability-item h3,
+  .row-content h3,
+  .case-narrative-item h3 {
+    font-size: clamp(1.35rem, 7vw, 2rem) !important;
+    line-height: 1.06 !important;
+    letter-spacing: -.045em !important;
+    max-width: 100% !important;
+  }
+
+  .capability-arrow {
+    justify-self: start !important;
+    margin-top: .2rem !important;
+  }
+
+  .project-meta,
+  .hero-metadata,
+  .tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: .45rem !important;
+  }
+
+  .hero-portrait,
+  .portrait-stack,
+  .cutout-row,
+  .cutout-row.reverse {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .cutout-img,
+  .portrait-img {
+    width: 100% !important;
+    max-height: 58vh !important;
+    object-fit: contain !important;
+  }
+
+  .case-image,
+  .case-wide-image .case-image,
+  .magazine-cover .case-image,
+  .magazine-spreads .case-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 16px !important;
+  }
+
+  .site-audio-control {
+    left: .75rem !important;
+    right: .75rem !important;
+    bottom: .75rem !important;
+    max-width: none !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: min(100% - 1rem, 100%) !important;
+  }
+
+  .brand-logo {
+    width: 104px !important;
+  }
+
+  .chip-button,
+  .icon-button,
+  .menu-button {
+    font-size: .68rem !important;
+    padding: .42rem .48rem !important;
+  }
+
+  .hero h1,
+  .page-intro h1,
+  .consultancy-capabilities .section-head h2 {
+    font-size: clamp(2rem, 14.5vw, 3.35rem) !important;
+  }
+}
