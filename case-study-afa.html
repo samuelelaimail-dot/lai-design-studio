@@ -31,8 +31,8 @@
 <meta content="assets/img/og image.svg" property="og:image"/>
 <link href="assets/img/mark.svg" rel="icon" type="image/svg+xml"/>
 <link href="manifest.webmanifest" rel="manifest"/>
-<link href="assets/css/styles.css?v=mobile-real-fix-2" rel="stylesheet"/>
-<script defer="" src="assets/js/main.js"></script>
+<link href="assets/css/styles.css?v=mobile-menu-fullscreen-1" rel="stylesheet"/>
+<script defer="" src="assets/js/main.js?v=mobile-menu-fullscreen-1"></script>
 <meta content="Asia for Animals case study by Samuele Lai: UI/UX, no code development, design system and donation focused digital strategy." name="description"/>
 <meta content="Asia for Animals: Case Study" property="og:title"/>
 <meta content="Asia for Animals case study by Samuele Lai: UI/UX, no code development, design system and donation focused digital strategy." property="og:description"/>
@@ -66,17 +66,33 @@
 </div>
 </div>
 <div class="mobile-nav" data-mobile-nav="">
-<div class="container">
-<a data-i18n="nav.home" href="index.html">Home</a>
-<a data-i18n="nav.profile" href="profile.html">Profile</a>
-<a aria-current="page" data-i18n="nav.work" href="work.html">Work</a>
-<a data-i18n="nav.psychology" href="psychology.html">Psychology</a>
-<a data-i18n="nav.contact" href="contact.html">Contact</a>
-<div aria-label="Language selector" class="mobile-lang">
-<button aria-pressed="true" data-lang="en" type="button">EN</button>
-<button aria-pressed="false" data-lang="it" type="button">IT</button>
-</div>
-</div>
+  <div class="container mobile-nav-inner">
+    <nav aria-label="Mobile navigation" class="mobile-menu-links">
+      <a data-i18n="nav.home" href="index.html">Home</a>
+      <a data-i18n="nav.profile" href="profile.html">Profile</a>
+      <a data-i18n="nav.work" href="work.html">Work</a>
+      <a data-i18n="nav.psychology" href="psychology.html">Psychology</a>
+      <a data-i18n="nav.contact" href="contact.html">Contact</a>
+    </nav>
+
+    <div class="mobile-menu-controls" aria-label="Mobile preferences">
+      <div class="mobile-control-block">
+        <p class="mobile-control-label" data-i18n="ui.language">Language</p>
+        <div aria-label="Language selector" class="mobile-lang">
+          <button aria-pressed="true" data-lang="en" type="button">EN</button>
+          <button aria-pressed="false" data-lang="it" type="button">IT</button>
+        </div>
+      </div>
+
+      <div class="mobile-control-block">
+        <p class="mobile-control-label" data-i18n="ui.preferences">Preferences</p>
+        <div class="mobile-toggle-grid">
+          <button aria-label="Switch colour theme" class="mobile-control-button" data-mobile-theme-toggle="" type="button">Dark</button>
+          <button aria-label="Toggle dyslexia-friendly reading mode" aria-pressed="false" class="mobile-control-button" data-mobile-dyslexia-toggle="" type="button">Dyslexia</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 </header>
 <main class="page-main" id="main">

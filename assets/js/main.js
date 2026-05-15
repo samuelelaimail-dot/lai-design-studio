@@ -112,6 +112,14 @@
       "ui.dark": "Dark",
       "ui.light": "Light",
       "ui.menu": "Menu",
+      "ui.preferences": "Preferenze",
+
+      "ui.preferences": "Preferences",
+
+      "ui.language": "Lingua",
+
+      "ui.language": "Language",
+
 
       "home.kicker": "Creative systems / professional digital work",
       "home.title": "Clear digital work with a human edge.",
@@ -911,4 +919,98 @@
   } else {
     setState("paused");
   }
+})();
+
+
+// Mobile fullscreen menu preferences.
+(function () {
+  const root = document.documentElement;
+  const body = document.body;
+  const menuButton = document.querySelector("[data-menu-button]");
+  const mobileNav = document.querySelector("[data-mobile-nav]");
+  const mobileThemeButtons = document.querySelectorAll("[data-mobile-theme-toggle]");
+  const mobileDyslexiaButtons = document.querySelectorAll("[data-mobile-dyslexia-toggle]");
+
+  const labels = {
+    en: { dark: "Dark", light: "Light", dyslexia: "Dyslexia", close: "Close", menu: "Menu" },
+    it: { dark: "Scuro", light: "Chiaro", dyslexia: "Dyslexia", close: "Chiudi", menu: "Menu" }
+  };
+
+  function lang() {
+    const saved = localStorage.getItem("site-lang");
+    if (saved === "it" || saved === "en") return saved;
+    return document.documentElement.lang === "it" ? "it" : "en";
+  }
+
+  function syncMobileControls() {
+    const dictionary = labels[lang()] || labels.en;
+    const isDark = root.getAttribute("data-theme") === "dark";
+    const isDyslexia = body.classList.contains("dyslexia-mode");
+    const isMenuOpen = Boolean(mobileNav && mobileNav.classList.contains("open"));
+
+    mobileThemeButtons.forEach((button) => {
+      button.textContent = isDark ? dictionary.light : dictionary.dark;
+      button.setAttribute("aria-pressed", String(isDark));
+    });
+
+    mobileDyslexiaButtons.forEach((button) => {
+      button.textContent = dictionary.dyslexia;
+      button.setAttribute("aria-pressed", String(isDyslexia));
+    });
+
+    if (menuButton && window.matchMedia("(max-width: 980px)").matches) {
+      menuButton.textContent = isMenuOpen ? dictionary.close : dictionary.menu;
+      menuButton.setAttribute("aria-label", isMenuOpen ? dictionary.close : dictionary.menu);
+    }
+  }
+
+  mobileThemeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("site-theme", next);
+      syncMobileControls();
+    });
+  });
+
+  mobileDyslexiaButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const active = body.classList.toggle("dyslexia-mode");
+      localStorage.setItem("site-dyslexia", String(active));
+      syncMobileControls();
+    });
+  });
+
+  menuButton?.addEventListener("click", () => {
+    window.setTimeout(() => {
+      const open = Boolean(mobileNav && mobileNav.classList.contains("open"));
+      body.classList.toggle("mobile-menu-open", open);
+      syncMobileControls();
+    }, 0);
+  });
+
+  mobileNav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileNav.classList.remove("open");
+      body.classList.remove("mobile-menu-open");
+      menuButton?.setAttribute("aria-expanded", "false");
+      syncMobileControls();
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !mobileNav?.classList.contains("open")) return;
+    mobileNav.classList.remove("open");
+    body.classList.remove("mobile-menu-open");
+    menuButton?.setAttribute("aria-expanded", "false");
+    syncMobileControls();
+  });
+
+  document.querySelectorAll("[data-lang]").forEach((button) => {
+    button.addEventListener("click", () => window.setTimeout(syncMobileControls, 0));
+  });
+
+  window.addEventListener("resize", syncMobileControls);
+  window.addEventListener("storage", syncMobileControls);
+  syncMobileControls();
 })();
