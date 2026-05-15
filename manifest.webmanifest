@@ -1,0 +1,24 @@
+{
+  "name": "Lai Design Studio",
+  "short_name": "Lai Design",
+  "description": "Digital direction, UI UX, custom coded websites, editorial systems and psychology informed design by Samuele Lai.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f7f5",
+  "theme_color": "#0d0d0e",
+  "icons": [
+    {
+      "src": "assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "lang": "en-GB",
+  "dir": "ltr"
+}
